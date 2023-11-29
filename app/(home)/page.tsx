@@ -14,7 +14,7 @@ import {caveat} from "../../fonts/font";
 
 const BackgroundImg = ({image}:{image:StaticImageData}) => {
     return (
-        <div className="w-full h-full object-cover	 shadow-2xl ">
+        <div className="w-full h-full object-cover shadow-2xl ">
             <Image className={'rounded-xl'}
                 src={image}
                 layout="fill"
@@ -42,7 +42,7 @@ export default function Home() {
 
 
 
-          <div className={'  flex items-center flex-col h-[100vh] justify-around '}>
+          <div className={'flex items-center flex-col h-[100vh] justify-around '}>
 
               <div className={'bg-white w-[600px] h-[150px] z-20 flex items-center justify-center rounded-2xl shadow-2xl'}>
 

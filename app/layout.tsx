@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import '../globals.css'
-import {glory} from "../../fonts/font";
+
+import './globals.css'
+import {glory} from "../fonts/font";
 
 export const metadata: Metadata = {
   title: 'FlyArt',
