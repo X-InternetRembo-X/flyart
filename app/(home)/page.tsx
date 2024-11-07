@@ -3,20 +3,34 @@ import Link from "next/link";
 import Image from "next/image";
 
 import homeBg from "/public/backgrounds/artistWorkshop7.jpg";
+import InfoBlock from "@/app/(home)/(components)/InfoBlock";
+import { HomePageConstants } from "@/constants/constants";
 
 export default function Home() {
   return (
-    <div className={"w-full  h-full "}>
-      <Image
-        src={homeBg}
-        sizes={"100vw"}
-        style={{ objectFit: "cover" }}
-        layout="fill"
-        alt="someone stole the art :("
-      />
+    <div className={"w-full  h-full overflow-y-hidden"}>
+      <div
+        className={"fixed"}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          zIndex: -1,
+        }}
+      >
+        <Image
+          src={homeBg}
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+          layout="fill"
+          alt="someone stole the art :("
+        />
+      </div>
       <div
         className={
-          "h-[50px] w-[400px] z-20 flex justify-around items-center text-2xl font-medium absolute top-4 right-4"
+          "h-[50px] fixed top w-[400px] z-20 flex justify-around items-center text-2xl font-medium  top-4 right-4"
         }
       >
         <Link className={"buttonMain"} href={"/"}>
@@ -46,6 +60,23 @@ export default function Home() {
           </span>
         </div>
       </div>
+
+      <InfoBlock
+        text={HomePageConstants.homeBuyPaintingBlock.text}
+        title={HomePageConstants.homeBuyPaintingBlock.title}
+      />
+      <InfoBlock
+        text={HomePageConstants.homeSellYourWorksBlock.text}
+        title={HomePageConstants.homeSellYourWorksBlock.title}
+      />
+      <InfoBlock
+        text={HomePageConstants.homeShareYourExperienceBlock.text}
+        title={HomePageConstants.homeShareYourExperienceBlock.title}
+      />
+      <InfoBlock
+        text={HomePageConstants.homeBuyMaterialsAndToolsBlock.text}
+        title={HomePageConstants.homeBuyMaterialsAndToolsBlock.title}
+      />
     </div>
   );
 }
