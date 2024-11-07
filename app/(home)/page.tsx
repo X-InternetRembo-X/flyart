@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import homeBg from "/public/backgrounds/artistWorkshop7.jpg";
-import { caveat } from "../../fonts/font";
 
 export default function Home() {
   return (
@@ -34,13 +33,13 @@ export default function Home() {
       <div className={"flex items-center flex-col h-[100vh] justify-around "}>
         <div
           className={
-            "bg-white w-[600px] h-[150px] z-20 flex items-center justify-center rounded-2xl shadow-2xl"
+            "bg-white  w-[600px] h-[150px] z-20 flex items-center justify-center rounded-2xl shadow-2xl"
           }
         >
-          <span className={"text-[56px]"}>
+          <span className={"text-[76px]"}>
             Welcome to
             <span
-              className={` ${caveat.variable} font-sans text-pink-500 ml-2  font-bold`}
+              className={`  text-caveat font-sans text-pink-500 ml-2  font-bold`}
             >
               FlyArt
             </span>

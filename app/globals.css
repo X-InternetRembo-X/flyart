@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -28,4 +34,8 @@ body {
 
 .buttonMain {
   @apply bg-[#F0A8D0] text-white p-2 rounded-md hover:bg-[#F7B5CA] transition-all duration-300
+}
+
+.text-caveat {
+  font-family: 'Caveat', sans-serif;
 }
