@@ -1,21 +1,20 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
-import './globals.css'
-import {glory} from "../fonts/font";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'FlyArt',
-  description: 'Welcome to FlyArt',
-}
+  title: "FlyArt",
+  description: "Welcome to FlyArt",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={glory.className}>{children}</body>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
