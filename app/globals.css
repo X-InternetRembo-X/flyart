@@ -9,7 +9,8 @@
 
 
 * {
-  scrollbar-width: none; /* Приховує скролбар */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {

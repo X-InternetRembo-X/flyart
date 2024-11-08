@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,10 +12,27 @@ import drawing4 from "../../asets/1679518716_bogatyr-club-p-rozovaya-klyaksa-fon
 
 import InfoBlock from "@/app/(home)/(components)/InfoBlock";
 import { HomePageConstants } from "@/constants/constants";
+import HomePageFooter from "@/app/(home)/(components)/HomePageFooter";
+import GoOnTopButton from "@/app/(home)/(components)/GoOnTopButton";
 
 export default function Home() {
+  const [showGoOnTopButton, setShowGoOnTopButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowGoOnTopButton(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className={"w-full  h-full overflow-y-hidden hiddenScrollBar"}>
+    <div
+      className={"w-full relative  h-full overflow-y-hidden hiddenScrollBar"}
+    >
       <div
         className={"fixed"}
         style={{
@@ -33,6 +52,9 @@ export default function Home() {
           alt="someone stole the art :("
         />
       </div>
+
+      <GoOnTopButton show={showGoOnTopButton} />
+
       <div
         className={
           "h-[50px] fixed top w-[400px] z-20 flex justify-around items-center text-2xl font-medium  top-4 right-4"
@@ -90,6 +112,8 @@ export default function Home() {
           image={drawing4}
         />
       </div>
+
+      <HomePageFooter />
     </div>
   );
 }
