@@ -35,6 +35,15 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.hiddenScrollBar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hiddenScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
 .buttonMain {
   @apply bg-[#F0A8D0] text-white p-2 rounded-md hover:bg-[#F7B5CA] transition-all duration-300
 }

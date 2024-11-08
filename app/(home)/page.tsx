@@ -3,12 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 import homeBg from "/public/backgrounds/artistWorkshop7.jpg";
+import drawing1 from "../../asets/1679518664_bogatyr-club-p-rozovaya-klyaksa-foni-vkontakte-15.png";
+import drawing2 from "../../asets/1679518738_bogatyr-club-p-rozovaya-klyaksa-foni-vkontakte-46.png";
+import drawing3 from "../../asets/1679518771_bogatyr-club-p-rozovaya-klyaksa-foni-vkontakte-76.png";
+import drawing4 from "../../asets/1679518716_bogatyr-club-p-rozovaya-klyaksa-foni-vkontakte-44.png";
+
 import InfoBlock from "@/app/(home)/(components)/InfoBlock";
 import { HomePageConstants } from "@/constants/constants";
 
 export default function Home() {
   return (
-    <div className={"w-full  h-full overflow-y-hidden"}>
+    <div className={"w-full  h-full overflow-y-hidden hiddenScrollBar"}>
       <div
         className={"fixed"}
         style={{
@@ -61,22 +66,30 @@ export default function Home() {
         </div>
       </div>
 
-      <InfoBlock
-        text={HomePageConstants.homeBuyPaintingBlock.text}
-        title={HomePageConstants.homeBuyPaintingBlock.title}
-      />
-      <InfoBlock
-        text={HomePageConstants.homeSellYourWorksBlock.text}
-        title={HomePageConstants.homeSellYourWorksBlock.title}
-      />
-      <InfoBlock
-        text={HomePageConstants.homeShareYourExperienceBlock.text}
-        title={HomePageConstants.homeShareYourExperienceBlock.title}
-      />
-      <InfoBlock
-        text={HomePageConstants.homeBuyMaterialsAndToolsBlock.text}
-        title={HomePageConstants.homeBuyMaterialsAndToolsBlock.title}
-      />
+      <div className={"flex flex-col"}>
+        <InfoBlock
+          text={HomePageConstants.homeBuyPaintingBlock.text}
+          title={HomePageConstants.homeBuyPaintingBlock.title}
+          image={drawing1}
+        />
+        <InfoBlock
+          text={HomePageConstants.homeSellYourWorksBlock.text}
+          title={HomePageConstants.homeSellYourWorksBlock.title}
+          toEnd={true}
+          image={drawing2}
+        />
+        <InfoBlock
+          text={HomePageConstants.homeShareYourExperienceBlock.text}
+          title={HomePageConstants.homeShareYourExperienceBlock.title}
+          image={drawing3}
+        />
+        <InfoBlock
+          text={HomePageConstants.homeBuyMaterialsAndToolsBlock.text}
+          title={HomePageConstants.homeBuyMaterialsAndToolsBlock.title}
+          toEnd={true}
+          image={drawing4}
+        />
+      </div>
     </div>
   );
 }

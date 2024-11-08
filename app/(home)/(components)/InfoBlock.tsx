@@ -1,17 +1,30 @@
 import React from "react";
+import { twMerge } from "tailwind-merge";
+import { StaticImageData } from "next/image";
+import Image from "next/image";
 
 type InfoBlockProps = {
   title: string;
   text: string;
   // bg: JSX.Element;
+  toEnd?: boolean;
+  image: StaticImageData | string;
 };
 
-const InfoBlock = ({ title, text }: InfoBlockProps) => {
+const InfoBlock: React.FC<InfoBlockProps> = ({ title, text, toEnd, image }) => {
   return (
     <div
-      className={`flex text-center h-[300px] flex-row gap-1  justify-center`}
+      className={twMerge(
+        `flex text-center items-center justify-center relative flex-row gap-2 w-full  p-2`,
+        toEnd ? "flex-row-reverse" : "flex-row",
+      )}
     >
-      <div className={"flex flex-col items-center gap-4 w-[700px]"}>
+      <div
+        className={twMerge(
+          "flex  flex-col items-center gap-4  w-1/2",
+          toEnd ? "mr-[200px]" : "ml-[200px]",
+        )}
+      >
         <h4
           className={
             "text-[42px] font-semibold bg-white bg-opacity-70 p-2 rounded-xl"
@@ -27,6 +40,7 @@ const InfoBlock = ({ title, text }: InfoBlockProps) => {
           {text}
         </p>
       </div>
+      <Image className={"!w-fit"} src={image} alt={title} layout="intrinsic " />
     </div>
   );
 };
