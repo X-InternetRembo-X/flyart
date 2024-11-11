@@ -9,14 +9,22 @@ type InfoBlockProps = {
   // bg: JSX.Element;
   toEnd?: boolean;
   image: StaticImageData | string;
+  isVisible: boolean;
 };
 
-const InfoBlock: React.FC<InfoBlockProps> = ({ title, text, toEnd, image }) => {
+const InfoBlock: React.FC<InfoBlockProps> = ({
+  title,
+  text,
+  toEnd,
+  image,
+  isVisible,
+}) => {
   return (
     <div
       className={twMerge(
         `flex text-center items-center justify-center relative flex-row gap-2 w-full  p-2`,
         toEnd ? "flex-row-reverse" : "flex-row",
+        isVisible ? "bg-amber-400" : "",
       )}
     >
       <div

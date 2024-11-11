@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -60,10 +60,16 @@ export default function Home() {
           "h-[50px] fixed top w-[400px] z-20 flex justify-around items-center text-2xl font-medium  top-4 right-4"
         }
       >
-        <Link className={"buttonMain"} href={"/"}>
+        <Link
+          href={{ pathname: "/auth", query: { action: "LogIn" } }}
+          className="buttonMain"
+        >
           Log In
         </Link>
-        <Link className={"buttonMain"} href={"/"}>
+        <Link
+          href={{ pathname: "/auth", query: { action: "SignUp" } }}
+          className="buttonMain"
+        >
           Sign Up
         </Link>
         <Link className={"buttonMain"} href={"/"}>
@@ -89,28 +95,17 @@ export default function Home() {
       </div>
 
       <div className={"flex flex-col"}>
-        <InfoBlock
-          text={HomePageConstants.homeBuyPaintingBlock.text}
-          title={HomePageConstants.homeBuyPaintingBlock.title}
-          image={drawing1}
-        />
-        <InfoBlock
-          text={HomePageConstants.homeSellYourWorksBlock.text}
-          title={HomePageConstants.homeSellYourWorksBlock.title}
-          toEnd={true}
-          image={drawing2}
-        />
-        <InfoBlock
-          text={HomePageConstants.homeShareYourExperienceBlock.text}
-          title={HomePageConstants.homeShareYourExperienceBlock.title}
-          image={drawing3}
-        />
-        <InfoBlock
-          text={HomePageConstants.homeBuyMaterialsAndToolsBlock.text}
-          title={HomePageConstants.homeBuyMaterialsAndToolsBlock.title}
-          toEnd={true}
-          image={drawing4}
-        />
+        {[drawing1, drawing2, drawing3, drawing4].map((drawing, index) => (
+          <InfoBlock
+            key={index}
+            toEnd={index % 2 !== 0}
+            data-index={index}
+            text={HomePageConstants[`homeBlock${index + 1}`].text}
+            title={HomePageConstants[`homeBlock${index + 1}`].title}
+            image={drawing}
+            isVisible={false}
+          />
+        ))}
       </div>
 
       <HomePageFooter />
